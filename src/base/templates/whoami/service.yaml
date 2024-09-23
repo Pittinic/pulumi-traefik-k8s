@@ -1,0 +1,15 @@
+resources:
+  whoami-service:
+    type: kubernetes:core/v1:Service
+    properties:
+      metadata:
+        namespace: ${namespace}
+        name: ${whoami.service-name}
+      
+      spec:
+        ports:
+          - protocol: TCP
+            name: ${whoami.ports.http.name}
+            port: ${whoami.ports.http.targetPort}
+        selector:
+          app: ${whoami.service-name}

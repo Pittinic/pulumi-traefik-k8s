@@ -1,0 +1,6 @@
+variables:
+  domain: localhost
+  urls:
+    prefix: ""
+    suffix: ""
+  namespace: pulumi-traefik-k8s

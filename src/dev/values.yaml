@@ -1,0 +1,7 @@
+variables:
+  namespace: dev
+  domain: whatever.com
+  urls:
+    suffix: -dev
+  acme:
+    email: whoever@mail.com

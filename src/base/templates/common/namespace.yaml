@@ -1,0 +1,8 @@
+resources:
+  base-namespace:
+    type: kubernetes:core/v1:Namespace
+    properties:
+      metadata:
+        name: ${namespace}
+        labels:
+          name: ${namespace}

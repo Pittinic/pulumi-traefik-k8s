@@ -1,0 +1,14 @@
+name: pulumi-traefik-k8s
+
+description: A demonstration of traefik on kubernetes using pulumi-yaml and a custom script to mimicate helm.
+
+runtime:
+  name: yaml
+  options:
+    compiler: "sh ./bin/merge_yaml.sh"
+
+encryptionsalt:
+
+variables:
+
+resources:

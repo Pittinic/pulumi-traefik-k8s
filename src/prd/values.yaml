@@ -1,0 +1,6 @@
+variables:
+  namespace: prd
+  domain: domain.prd.com
+  acme:
+    email: whoever@mail.com
+    endpoint: https://acme-v02.api.letsencrypt.org/directory

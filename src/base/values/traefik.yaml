@@ -1,0 +1,29 @@
+variables:
+  traefik:
+    image: traefik:v3.1
+    logging:
+      format: common
+      level: DEBUG
+    ports:
+      dashboard:
+        name: dashboard
+        port: 8080
+        targetPort: 8080
+      http:
+        name: http
+        port: 80
+        targetPort: 80
+      https:
+        name: https
+        port: 443
+        targetPort: 443
+    replicas-nb: 1
+    role-binding-name: traefik-role-binding
+    role-name: traefik-role
+    service-account-name: traefik-service-account
+    service-name: traefik
+    services:
+      dashboard-name: traefik-dashboard-service
+      http-name: traefik-http-service
+      https-name: traefik-https-service
+    tls-resolver-name: letsencrypt
