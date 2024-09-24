@@ -9,14 +9,6 @@ resources:
       spec: 
         ports:
           - protocol: TCP
-            port: ${traefik.ports.dashboard.port}
-            targetPort: ${traefik.ports.dashboard.targetPort}
-            name: ${traefik.ports.dashboard.name}
-          - protocol: TCP
-            port: ${traefik.ports.http.port}
-            targetPort: ${traefik.ports.http.targetPort}
-            name: ${traefik.ports.http.name}
-          - protocol: TCP
             port: ${traefik.ports.https.port}
             targetPort: ${traefik.ports.https.targetPort}
             name: ${traefik.ports.https.name}
