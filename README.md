@@ -74,6 +74,11 @@ This project aims to offer a way to address it around a demonstration scenario o
 * on **Kubernetes**
 * using **Pulumi** and a light custom **shell script**.
 
+Several branches offer various degree of complexity in the demonstration:
+* [feat/namespace](https://github.com/Pittinic/pulumi-traefik-k8s/tree/feat/namespace) is the simplest one, leading only to the creation of a namespace on Kubernetes.
+* [feat/http](https://github.com/Pittinic/pulumi-traefik-k8s/tree/feat/http) is the next level, including Traefik's deployment and exposing WhoAmI over simple http.
+* [feat/https](https://github.com/Pittinic/pulumi-traefik-k8s/tree/feat/https) is the last one, upgrading WhoAmI's exposure to https and adding Let's Encrypt automatic certificate generation and refresh.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 

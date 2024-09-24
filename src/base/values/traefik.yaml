@@ -5,10 +5,10 @@ variables:
       format: common
       level: DEBUG
     ports:
-      https:
-        name: https
-        port: 443
-        targetPort: 443
+      http:
+        name: http
+        port: 80
+        targetPort: 80
     replicas-nb: 1
     role-binding-name: traefik-role-binding
     role-name: traefik-role

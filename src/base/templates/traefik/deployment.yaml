@@ -29,10 +29,5 @@ resources:
                   - --log.level=${traefik.logging.level}
                   - --log.format=${traefik.logging.format}
                   - --accesslog
-                  # letsencrypt resolver
-                  - --certificatesresolvers.${traefik.tls-resolver-name}.acme.tlschallenge=true
-                  - --certificatesresolvers.${traefik.tls-resolver-name}.acme.email=${acme.email}
-                  - --certificatesresolvers.${traefik.tls-resolver-name}.acme.storage=${acme.storage}
-                  - --certificatesresolvers.${traefik.tls-resolver-name}.acme.caserver=${acme.endpoint}
                   # entrypoints
-                  - --entryPoints.${traefik.ports.https.name}.address=:${traefik.ports.https.targetPort}
+                  - --entryPoints.${traefik.ports.http.name}.address=:${traefik.ports.http.targetPort}
