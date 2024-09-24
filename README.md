@@ -125,9 +125,9 @@ To get a local copy up and running follow these simple example steps.
 1. Customize the settings by either:
     - editing the values of each variable globally as you see fit in ***src/base/values/<file-name>.yaml***
     - or creating new folders for each stack such as ***src/<stack-name>/values/*** and creating one or several values files there.
-2. Deploy a stack with `pulumi up --stack=<stack-name>`
-2. Update a stack with `pulumi up --stack=<stack-name>`
-2. Deploy a stack with `pulumi destroy --stack=<stack-name>`
+2. Deploy a stack with `pulumi up --stack=<stack-name>` (Pulumi will use a local kubeconfig if available, but can also be explicitly configured as shown [here](https://www.pulumi.com/registry/packages/kubernetes/installation-configuration/)).
+2. Update a stack with `pulumi up --stack=<stack-name>`.
+2. Deploy a stack with `pulumi destroy --stack=<stack-name>`.
 
 I personnaly create as many stacks as I have environments (eg. dev/prd).
 
