@@ -9,9 +9,9 @@ resources:
       spec: 
         ports:
           - protocol: TCP
-            port: ${traefik.ports.https.port}
-            targetPort: ${traefik.ports.https.targetPort}
-            name: ${traefik.ports.https.name}
+            port: ${traefik.ports.http.port}
+            targetPort: ${traefik.ports.http.targetPort}
+            name: ${traefik.ports.http.name}
         selector:
           app: ${traefik.service-name}
         type: LoadBalancer

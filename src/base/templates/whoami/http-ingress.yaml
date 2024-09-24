@@ -6,9 +6,7 @@ resources:
         namespace: ${namespace}
         name: whoami-https-ingress
         annotations:
-          traefik.ingress.kubernetes.io/router.entrypoints: ${traefik.ports.https.name}
-          traefik.ingress.kubernetes.io/router.tls: "true"
-          traefik.ingress.kubernetes.io/router.tls.certresolver: ${traefik.tls-resolver-name}
+          traefik.ingress.kubernetes.io/router.entrypoints: ${traefik.ports.http.name}
           pulumi.com/skipAwait: "true"
 
       spec:
@@ -16,7 +14,7 @@ resources:
           - host: ${urls.prefix}whoami${urls.suffix}.${domain}
             http:
               paths:
-                - path: /tls
+                - path: /notls
                   pathType: Exact
                   backend:
                     service:
