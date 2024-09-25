@@ -96,18 +96,25 @@ Several branches offer various degree of complexity in the demonstration:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a copy up and running, follow these steps.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ### Prerequisites
 
-* [pulumi](https://www.pulumi.com/docs/iac/download-install/)
-* [kubernetes](https://kubernetes.io/docs/setup/)
+* Install [kubernetes](https://kubernetes.io/docs/setup/) on your server (be it a single-pod instance for local dev, a massive cloud cluster or anything in-between).
+* Install [pulumi](https://www.pulumi.com/docs/iac/download-install/) on your local environment. Pulumi will use a local kubeconfig if available, but can also be explicitly configured as shown [here](https://www.pulumi.com/registry/packages/kubernetes/installation-configuration/).
+* Install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to be able to clone the repo in the next step.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Pittinic/pulumi-traefik-k8s.git
+   git clone https://github.com/Pittinic/platypod.git
    ```
 2. Remove git remote url to avoid accidental pushes to base project
    ```sh
@@ -121,14 +128,27 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Customize the settings by either:
-    - editing the values of each variable globally as you see fit in ***src/base/values/<file-name>.yaml***
-    - or creating new folders for each stack such as ***src/<stack-name>/values/*** and creating one or several values files there.
-2. Deploy a stack with `pulumi up --stack=<stack-name>` (Pulumi will use a local kubeconfig if available, but can also be explicitly configured as shown [here](https://www.pulumi.com/registry/packages/kubernetes/installation-configuration/)).
-2. Update a stack with `pulumi up --stack=<stack-name>`.
-2. Deploy a stack with `pulumi destroy --stack=<stack-name>`.
-
-I personnaly create as many stacks as I have environments (eg. dev/prd).
+We will create a [Pulumi stack](https://www.pulumi.com/docs/iac/concepts/stacks/) to create an isolated and configurated instance of a deployment.
+1. Create a folder named ***src/<stack-name>***.
+2. Customize the variables defined in ***src/base/values/\*.yaml*** however you'd like.
+    - Either in a single file or several.
+    - Filenames do not matter, only their extension (.yml or .yaml).
+    - Whatever you do not redefine will keep its default value.
+3. Create an environment variable called `PULUMI_CONFIG_PASSPHRASE` to store your pulumi passphrase.
+4. Create your stack by running:
+    ```sh
+    pulumi stack init <stack-name> [--non-interactive]
+    ```
+ 5. Update your stack by running:
+    ```sh
+    pulumi up --stack=<stack-name> [--non-interactive --skip-preview]
+    ```
+    Note that you can refine this step, for instance by adding a commit message to the operation. See [pulumi up](https://www.pulumi.com/docs/iac/cli/commands/pulumi_up/)'s documentation.
+ 6. Delete the stack to decommission it with:
+    ```sh
+    pulumi destroy stack=<stack-name>  [--non-interactive --yes]
+    pulumi stack rm <stack-name> [--yes]
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
