@@ -109,10 +109,9 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/Pittinic/pulumi-traefik-k8s.git
    ```
-2. Change git remote url to avoid accidental pushes to base project
+2. Remove git remote url to avoid accidental pushes to base project
    ```sh
-   git remote set-url origin <your-own-repo>/<your-own-project>
-   git remote -v # confirm the changes
+   git remote rm origin
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
